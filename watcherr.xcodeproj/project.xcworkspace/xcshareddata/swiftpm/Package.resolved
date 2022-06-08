@@ -17,6 +17,15 @@
         "branch" : "main",
         "revision" : "e0ab8c4e18baf6679a65b325155923276b832687"
       }
+    },
+    {
+      "identity" : "swift-commands",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/qiuzhifei/swift-commands",
+      "state" : {
+        "revision" : "0883a0383038c41b398945b2e6fd233baaacc394",
+        "version" : "0.6.0"
+      }
     }
   ],
   "version" : 2

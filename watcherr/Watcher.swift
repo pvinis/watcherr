@@ -1,6 +1,7 @@
 import Foundation
 import FileWatcher
 import RxSwift
+import Commands
 
 
 struct WatcherData: Equatable {
@@ -22,7 +23,21 @@ let disposeBag = DisposeBag()
 struct Watcher {
     var watchers: Array<WatcherData> = []
 
-    mutating func start(path: String, debounce: Bool = false, callback: @escaping Callback) {
+
+    mutating func start(_ watch: Watch) {
+        start(path: watch.dir,
+              debounce: watch.debounce ?? false,
+              filterFiles: watch.triggerFiles ?? nil,
+              callback: { fileWatcherEvent -> Void in
+            watch.run.forEach { cmd in
+                print("will run: \(cmd)")
+                Commands.Bash.run("cd '\(watch.dir)'; \(cmd)")
+//                print(Commands.Bash.run("cd '\(watch.dir)'; \(cmd)").output)
+            }
+        })
+    }
+
+    mutating func start(path: String, debounce: Bool = false, filterFiles: Array<String>? = nil, callback: @escaping Callback) {
         let watcher = FileWatcher([path])
         watcher.queue = DispatchQueue.global()
 
@@ -34,6 +49,16 @@ struct Watcher {
             }
             watcher.callback = wrappedCallback
             subject!
+                .filter({ event in
+                    if filterFiles == nil {
+                        return true
+                    }
+                    let triggerFile = String(event.path.split(separator: "/").last!)
+                    if (filterFiles!.contains(triggerFile)) {
+                        return true
+                    }
+                    return false
+                })
                 .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
                 .subscribe({ event in
                     callback(event.element!)

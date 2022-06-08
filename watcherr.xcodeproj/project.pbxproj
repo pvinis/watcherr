@@ -17,6 +17,8 @@
 		1A8D7FFD2850B08200D05462 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 1A8D7FFC2850B08200D05462 /* RxBlocking */; };
 		1A8D7FFF2850B08200D05462 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1A8D7FFE2850B08200D05462 /* RxCocoa */; };
 		1A8D80012850B08200D05462 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A8D80002850B08200D05462 /* RxSwift */; };
+		1A8D80032850B85100D05462 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D80022850B85100D05462 /* Config.swift */; };
+		1A8D80062850C10D00D05462 /* Commands in Frameworks */ = {isa = PBXBuildFile; productRef = 1A8D80052850C10D00D05462 /* Commands */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,7 @@
 		1A8D7FE72850A6A900D05462 /* watcherr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watcherr.entitlements; sourceTree = "<group>"; };
 		1A8D7FED2850A6C300D05462 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		1A8D7FF22850AA4D00D05462 /* Watcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watcher.swift; sourceTree = "<group>"; };
+		1A8D80022850B85100D05462 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8D7FFF2850B08200D05462 /* RxCocoa in Frameworks */,
+				1A8D80062850C10D00D05462 /* Commands in Frameworks */,
 				1A8D7FF12850AA1900D05462 /* FileWatcher in Frameworks */,
 				1A8D80012850B08200D05462 /* RxSwift in Frameworks */,
 				1A8D7FFD2850B08200D05462 /* RxBlocking in Frameworks */,
@@ -67,6 +71,7 @@
 				1A8D7FDE2850A6A600D05462 /* AppDelegate.swift */,
 				1A8D7FE02850A6A600D05462 /* ViewController.swift */,
 				1A8D7FF22850AA4D00D05462 /* Watcher.swift */,
+				1A8D80022850B85100D05462 /* Config.swift */,
 				1A8D7FED2850A6C300D05462 /* StatusBarController.swift */,
 				1A8D7FE22850A6A900D05462 /* Assets.xcassets */,
 				1A8D7FE42850A6A900D05462 /* Main.storyboard */,
@@ -96,6 +101,7 @@
 				1A8D7FFC2850B08200D05462 /* RxBlocking */,
 				1A8D7FFE2850B08200D05462 /* RxCocoa */,
 				1A8D80002850B08200D05462 /* RxSwift */,
+				1A8D80052850C10D00D05462 /* Commands */,
 			);
 			productName = watcherr;
 			productReference = 1A8D7FDB2850A6A600D05462 /* watcherr.app */;
@@ -128,6 +134,7 @@
 			packageReferences = (
 				1A8D7FEF2850AA1900D05462 /* XCRemoteSwiftPackageReference "FileWatcher" */,
 				1A8D7FFB2850B08200D05462 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				1A8D80042850C10D00D05462 /* XCRemoteSwiftPackageReference "swift-commands" */,
 			);
 			productRefGroup = 1A8D7FDC2850A6A600D05462 /* Products */;
 			projectDirPath = "";
@@ -157,6 +164,7 @@
 			files = (
 				1A8D7FE12850A6A600D05462 /* ViewController.swift in Sources */,
 				1A8D7FEE2850A6C300D05462 /* StatusBarController.swift in Sources */,
+				1A8D80032850B85100D05462 /* Config.swift in Sources */,
 				1A8D7FF32850AA4D00D05462 /* Watcher.swift in Sources */,
 				1A8D7FDF2850A6A600D05462 /* AppDelegate.swift in Sources */,
 			);
@@ -383,6 +391,14 @@
 				kind = branch;
 			};
 		};
+		1A8D80042850C10D00D05462 /* XCRemoteSwiftPackageReference "swift-commands" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/qiuzhifei/swift-commands";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -405,6 +421,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A8D7FFB2850B08200D05462 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		1A8D80052850C10D00D05462 /* Commands */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A8D80042850C10D00D05462 /* XCRemoteSwiftPackageReference "swift-commands" */;
+			productName = Commands;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
