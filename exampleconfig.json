@@ -1,0 +1,12 @@
+{
+	"watches": [
+		{
+			"dir": "/Users/pavlos/somedir",
+			"debounce": true,
+			"triggerFiles": ["thefile"],
+			"run": [
+				"echo RUNNING!"
+			]
+		}
+	]
+}
